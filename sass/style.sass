@@ -1,7 +1,7 @@
 $blue: #2077b2
 $primary: $blue
 $grey-dark: #42464c
-$family-sans-serif: "游ゴシック", YuGothic, "ヒラギノ角ゴ Pro", "Hiragino Kaku Gothic Pro", "メイリオ", "Meiryo", sans-serif
+$family-sans-serif: "Noto Sans CJK","游ゴシック", YuGothic, "ヒラギノ角ゴ Pro", "Hiragino Kaku Gothic Pro", "メイリオ", "Meiryo", sans-serif
 
 @import "node_modules/bulma/bulma"
 
@@ -41,17 +41,28 @@ nav .level
 .title
   line-height: 1.25
   font-size: 24px
-  a
+  .title-text
     color: #222324
+    display: inline-block
+    &:after
+      content: ''
+      display: block
+      margin: auto
+      width: 0
+      height: 1px
+      background: black
+      transition: width .5s
+
+  a
+    &:hover:after
+      width: 100%
+
   &.notfound
     font-size: 20vw
 
 code
   color: inherit
   background-color: transparent
-  font-size: 90%
-
-
 
 article+article
   margin-top: 80px
@@ -60,7 +71,7 @@ article+article
   h1, h2, h3, h4, h5, h6
     line-height: 1.25
     &:not(:first-child)
-      margin-top: 80px
+      margin-top: 48px
     &::before
       color: #aeb1b5
       font-weight: bold
@@ -110,7 +121,6 @@ article+article
       padding: 8px 10px
       vertical-align: top
   & > code, p > code
-    font-size: 90%
     padding: 2px 4px
     margin: 0 2px
     border: 1px solid #ddd
@@ -119,10 +129,13 @@ article+article
     color: #42464c
   pre
     code
-      font-size: 90%
       padding: 1em
       line-height: 1.5
   li
     pre,
     table
       margin-bottom: 1.5em
+
+  .readmore
+    text-decoration: none
+    float: right

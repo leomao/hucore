@@ -1,22 +1,21 @@
 {{ partial "header" . }}
+<body>
 {{ partial "nav" . }}
 <section class="section">
   <div class="container">
     {{ range sort .Paginator.Pages }}
     <article>
-      <h1 class="title"><a href="{{ .Permalink }}">{{ .Title }}</a>{{ if .Draft }} ::Draft{{ end }}</h1>
-      <h2 class="subtitle is-5">{{ .Date.Format "January 2, 2006" }}</h2>
+      <h1 class="title"><a class="title-text" href="{{ .Permalink }}">{{ .Title }}</a>{{ if .Draft }} ::Draft{{ end }}</h1>
+      <h2 class="subtitle is-6">{{ .Date.Format "January 2, 2006" }}</h2>
       {{ if .Params.tags }}
         {{ partial "tags" .Params.tags }}
       {{ end }}
       <div class="content">
-        {{ .Summary | plainify | safeHTML }}
+        {{ .Summary }}
         {{ if .Truncated }}
-        ...<a class="button is-link" href="{{ .Permalink }}" style="height:28px">
-          Read more
-          <span class="icon is-small">
-            <i class="fa fa-angle-double-right"></i>
-          </span>
+        <a class="button is-link readmore" href="{{ .Permalink }}" style="height:28px">
+          <span style="padding-right: 5px">More</span>
+          <i class="fa fa-angle-double-right"></i>
         </a>
         {{ end }}
       </div>
@@ -26,3 +25,5 @@
 </section>
 {{ partial "pager" . }}
 {{ partial "footer" . }}
+</body>
+</html>
