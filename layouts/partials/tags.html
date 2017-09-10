@@ -1,5 +1,12 @@
-<div class="tags">
-    {{ range . }}
-        <a class="button is-link" href="{{ "/tags/" | relURL }}{{ . | urlize }}">{{ . }}</a>
-    {{ end }}
+<div class="tags level">
+  <div class="level-left">
+    <div class="level-item">
+      <i class="fa fa-tags"></i>
+    </div>
+      {{ range . }}
+        <div class="level-item">
+          <a class="level-item tag is-link is-light" href="{{ "/tags/" | relURL }}{{ . | urlize }}">{{ . }}</a>
+        </div>
+      {{ end }}
+  </div>
 </div>
