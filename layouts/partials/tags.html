@@ -5,7 +5,7 @@
     </div>
       {{ range . }}
         <div class="level-item">
-          <a class="level-item tag is-link is-light" href="{{ "/tags/" | relURL }}{{ . | urlize }}">{{ . }}</a>
+          <a class="level-item tag is-light" href="{{ "/tags/" | relURL }}{{ . | urlize }}">{{ . }}</a>
         </div>
       {{ end }}
   </div>
